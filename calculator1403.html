@@ -88,13 +88,13 @@
            </tr>
            <tr>
             <td>
-                <button>7</button>
+                <button value="7" id="7" class="numbers">7</button>
             </td>
             <td>
-                <button>8</button>
+                <button value="8" id="8" class="numbers">8</button>
             </td>
             <td>
-                <button>9</button>
+                <button value="9" id="9" class="numbers">9</button>
             </td>
             <td>
                 <button class="orange" >/</button>
@@ -102,13 +102,13 @@
            </tr>
            <tr>
             <td>
-                <button>4</button>
+                <button value="4" id="4" class="numbers">4</button>
             </td>
             <td>
-                <button>5</button>
+                <button value="5" id="5" class="numbers">5</button>
             </td>
             <td>
-                <button>6</button>
+                <button value="6" id="6" class="numbers">6</button>
             </td>
             <td>
                 <button class="orange" >+</button>
@@ -116,13 +116,13 @@
            </tr>
            <tr>
             <td>
-                <button>1</button>
+                <button value="1" id="1" class="numbers">1</button>
             </td>
             <td>
-                <button>2</button>
+                <button value="2" id="2" class="numbers">2</button>
             </td>
             <td>
-                <button>3</button>
+                <button value="3" id="3" class="numbers">3</button>
             </td>
             <td>
                 <button class="orange">-</button>
@@ -133,7 +133,7 @@
                 <button class="black">+-</button>
             </td>
             <td>
-                <button>0</button>
+                <button value="0" id="0" class="numbers">0</button>
             </td>
             <td>
                 <button class="black">.</button>
@@ -143,5 +143,29 @@
             </td>
            </tr>
         </table>
+        <script>
+            var inputLabel = document.getElementById("calc-display");
+            var numbers = document.getElementsByClassName("numbers");
+            var clearAllButton = document.getElementById("clearAllButton");
+            var clearButton = document.getElementById("clearButton")
+            //console.log("numbers:", numbers)
+            for(let i = 0; i < numbers.length; i++) {
+                numbers[i].addEventListener("click", function(){
+                    var pushed = this.value 
+                    inputLabel.value = inputLabel.value + pushed;
+                })
+            }
+
+            clearAllButton.addEventListener("click", function(){
+                inputLabel.value = "";
+            })
+
+            clearButton.addEventListener("click", function(){
+                var maxLenght = inputLabel.value.length;
+                inputLabel.value = inputLabel.value.substar(0, maxLenght - 1)
+            })
+
+
+        </script>
     </body>
 </html>
